@@ -1,16 +1,10 @@
 
-var x = 1;
-a();
-b();
-console.log(x);
-
-function a(){
-    var x = 10;
-    console.log(x);
+function x(){
+    var a = 7;
+    function y() {
+        console.log(a);
+    }
+    return y;
 }
-
-function b(){
-    var x = 100;
-    console.log(x);
-}
-
+var z = x();
+console.log(z);
