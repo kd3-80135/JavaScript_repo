@@ -22,19 +22,30 @@
 
 const users = [
     { firstName: "Ashish", lastName: "Gupta", age: 27},
-    { firstName: "Tom", lastName: "Cruise", age: 60},
+    { firstName: "Tom", lastName: "Cruise", age: 62},
     { firstName: "Tom", lastName: "Riddle", age: 51},
     { firstName: "Sagar", lastName: "Kumar", age: 27}
 ]
 
-console.log(users.reduce((acc, curr) => {
+console.log(users.reduce(function(acc, curr){
     if (acc[curr.age]){
         acc[curr.age] = ++acc[curr.age];
     }
     else{
         acc[curr.age] = 1;
     }
+    return acc;
 }, {}))
+
+console.log(users.filter(x => x.age<30).map(x => x.firstName + " " + x.lastName));
+
+console.log(users.reduce((acc,curr) => {
+    if (curr.age<30){
+        acc.push(curr.firstName + " " + curr.lastName);
+    }
+    return acc;
+}, []))
+
 
 
 
